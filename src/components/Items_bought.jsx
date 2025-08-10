@@ -1,11 +1,10 @@
 import { useState } from "react";
 import styles from "./Items_bought.module.css";
 
-function Items_bought({ setMonth, getItems, editItems, setYear, getTotalSpent }) {
+function Items_bought({ setMonth, getItems, editItems, setYear, getTotalSpent ,setTotalSpent }) {
   const [itemName, setItemName] = useState("");
   const [removeIndex, setRemoveIndex] = useState(-4);
   const [itemPrice, setItemPrice] = useState(0);
-  const [totalSpent, setTotalSpent] = useState(0);
   const months = {
     "":"",
     "1":"January",
@@ -33,23 +32,20 @@ function Items_bought({ setMonth, getItems, editItems, setYear, getTotalSpent })
   };
   const addItem = () => {
     editItems([...getItems, { Name: itemName, Price: itemPrice }]);
-    const newTotal = totalSpent + Number(itemPrice);
+    const newTotal = Number(getTotalSpent) + Number(itemPrice);
     setTotalSpent(newTotal);
-    getTotalSpent(newTotal);
   };
   const removeItem = () => {
     editItems([
       ...getItems.slice(0, removeIndex),
       ...getItems.slice(removeIndex + 1, getItems.length),
     ]);
-    const newTotal = totalSpent - Number(getItems[removeIndex]["Price"]);
+    const newTotal = Number(getTotalSpent) - Number(getItems[removeIndex]["Price"]);
     setTotalSpent(newTotal);
-    getTotalSpent(newTotal);
   };
   const resetList = () => {
     editItems([]);
     setTotalSpent(0);
-    getTotalSpent(0);
   };
 
   return (
@@ -80,7 +76,7 @@ function Items_bought({ setMonth, getItems, editItems, setYear, getTotalSpent })
           </div>
         </div>
         <div className={styles.container_banner} style={{ marginTop:"auto" }}>
-        TOTAL AMOUNT SPENT: <span style={{ color:"green" }}>${totalSpent}</span>
+        TOTAL AMOUNT SPENT: <span style={{ color:"green" }}>${getTotalSpent}</span>
         </div>
       </div>
       <div className={styles.input_container}>

@@ -19,6 +19,7 @@ function App() {
   const removeBudgetHistory = (removeIndex) => {
     if (removeIndex == selectedIndex) {
       setSelectedIndex(-5);
+      setTotalSpent(0);
     }
     setBudgetHistory([
       ...budgetHistory.slice(0, removeIndex),
@@ -29,6 +30,7 @@ function App() {
     setBudgetHistory([]);
     setSelectedIndex(-5);
     setOverBudget(false);
+    setTotalSpent(0);
   };
   const changeBudgetHistory = (value) => {
     const tempHistory = [...budgetHistory];
@@ -39,6 +41,7 @@ function App() {
     setSelectedIndex(index);
     setSelectedMonth(budgetHistory[index]["Month"]);
     setSelectedYear(budgetHistory[index]["Year"]);
+    setTotalSpent(budgetHistory[index]["Budget"].reduce((sum, item) => sum + Number(item.Price), 0));
   };
   const changeTotalSpent = (value) => {
     setTotalSpent(value);
@@ -118,7 +121,8 @@ function App() {
             getItems={budgetHistory[selectedIndex]["Budget"]}
             editItems={changeBudgetHistory}
             setMonth={selectedMonth}
-            getTotalSpent={changeTotalSpent}
+            getTotalSpent={totalSpent}
+            setTotalSpent={changeTotalSpent}
           />
         )}
       </div>
