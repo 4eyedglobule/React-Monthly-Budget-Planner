@@ -1,0 +1,38 @@
+.app_title {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: #000000;
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.search_bar{
+    display:flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.container_of_containers {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.input_container {
+    display:flex;
+    justify-content: center;
+    margin: 10px;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.budget_warning_text{
+    display:flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 20px;
+    color: #ff0000;
+    font-family: "Roboto Flex", sans-serif;
+}
