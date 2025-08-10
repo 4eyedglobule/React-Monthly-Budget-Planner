@@ -36,3 +36,27 @@
     color: #ff0000;
     font-family: "Roboto Flex", sans-serif;
 }
+
+.import_export_container{
+  display:flex;
+  justify-content: center;
+}
+
+.button_style {
+    font-size: 15px;
+    font-family: "Roboto Flex", sans-serif;
+    background: linear-gradient(to top left,#00328f, #110072);
+    color: white;
+    border-radius: 10px;
+}
+
+.button_style:active {
+  background: linear-gradient(to top left,#0059ff, #2600ff);
+}
+
+.button_style:disabled {
+  background: linear-gradient(to top left,#000c24, #060025);
+  background-color: rgb(0, 0, 0);
+  color: rgb(43, 43, 43);
+  cursor: not-allowed;
+}
